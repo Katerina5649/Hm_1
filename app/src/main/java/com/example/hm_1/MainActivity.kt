@@ -9,6 +9,7 @@ import android.view.View
 import android.widget.Chronometer
 import kotlinx.android.synthetic.main.activity_main.*
 import java.util.concurrent.TimeUnit
+import kotlin.math.pow
 
 
 class MainActivity : AppCompatActivity() {
@@ -18,17 +19,18 @@ class MainActivity : AppCompatActivity() {
     }
 
 
-    val i :Int = 0
-    val timer = object : CountDownTimer(TimeUnit.SECONDS.toMillis(10), TimeUnit.SECONDS.toMillis(3)) {
+    //vat т.к i изменяемое
+    var i :Int = 0
+    val timer = object : CountDownTimer(TimeUnit.SECONDS.toMillis(10), TimeUnit.SECONDS.toMillis(1)) {
         override fun onFinish() {
             start()
         }
 
         override fun onTick(value: Long) {
             //Пробовала i.rangeTo(i+1), i.plus(1)
-            i.inc()
+            i++
             //Пробовала text.setText(i), не сработало
-            text.text = i.toString()
+            text.text = convertIntToWord(i)
         }
     }
 
@@ -43,7 +45,7 @@ class MainActivity : AppCompatActivity() {
         } else {
             timer.cancel()
             isPlaying = false
-            i.rangeTo(0)
+            i = 0
             text.setText("0")
             startbutton.setText("Старт")
         }
@@ -51,8 +53,63 @@ class MainActivity : AppCompatActivity() {
 
     }
 
+    fun convertIntToWord(digit : Int) :String {
+        var stringDigit : String
+        val length: Int = digit.toString().length
+        if (digit >= 1000) return "Я устал считать"
+         stringDigit  = when(digit) {
+             1 -> "один"
+             2 -> "два"
+             3 -> "три"
+             4 -> "четыре"
+             5 -> "пять"
+             6 -> "шесть"
+             7 -> "семь"
+             8 -> "восемь"
+             9 -> "девять"
+             10 -> "десять"
+             11 -> "одиннадцать"
+             12 -> "двенадцать"
+             13 -> "тринадцать"
+             14 -> "четырнадцать"
+             15 -> "пятнадцать"
+             16 -> "шестнадцать"
+             17 -> "семнадцать"
+             18 -> "восемнадцат"
+             19 -> "девятнадцать"
+             20 -> "двадцать"
+             30 -> "тридцать"
+             40 -> "сорок"
+             50 -> "пятдесят"
+             60 -> "шестдесят"
+             70 -> "семдесят"
+             80 -> "восемдесят"
+             90 -> "девяносто"
+             100 -> "сто"
+             200 -> "двести"
+             300-> "триста"
+             400 -> "четыреста"
+             500 -> "пятьсот"
+             600 -> "шестьсот"
+             700 -> "семьсот"
+             800 -> "восемьсот"
+             900 -> "девятьсот"
+             else -> convertIntToWord((digit / 10.toDouble().pow(length-1).toInt())*10.toDouble().pow(length-1).toInt())+ convertIntToWord(digit % 10.toDouble().pow(length-1).toInt())
+         }
+
+
+
+        return stringDigit
+    }
+
+
+
 
 }
+
+
+
+
 
 
 
