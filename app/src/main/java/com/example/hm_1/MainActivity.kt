@@ -10,6 +10,9 @@ import android.widget.Chronometer
 import kotlinx.android.synthetic.main.activity_main.*
 import java.util.concurrent.TimeUnit
 import kotlin.math.pow
+import android.content.Intent
+
+
 
 
 class MainActivity : AppCompatActivity() {
@@ -94,7 +97,7 @@ class MainActivity : AppCompatActivity() {
              700 -> "семьсот"
              800 -> "восемьсот"
              900 -> "девятьсот"
-             else -> convertIntToWord((digit / 10.toDouble().pow(length-1).toInt())*10.toDouble().pow(length-1).toInt())+ convertIntToWord(digit % 10.toDouble().pow(length-1).toInt())
+             else -> convertIntToWord((digit / 10.toDouble().pow(length-1).toInt())*10.toDouble().pow(length-1).toInt())+" "+ convertIntToWord(digit % 10.toDouble().pow(length-1).toInt())
          }
 
 

@@ -25,7 +25,7 @@
             android:layout_height="wrap_content"
             android:text="Старт"
             android:onClick="Timer"
-            style="@style/Widget.AppCompat.Button.Borderless.Colored"
+
     />
 
 
