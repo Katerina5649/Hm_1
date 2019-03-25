@@ -11,17 +11,39 @@ class Main2Activity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main2)
+        timer.start()
     }
-    val secondActivity = object : CountDownTimer(TimeUnit.SECONDS.toMillis(10), TimeUnit.SECONDS.toMillis(1)) {
+    val timer = object : CountDownTimer(TimeUnit.SECONDS.toMillis(10), TimeUnit.SECONDS.toMillis(1)) {
         override fun onFinish() {
             val intent = Intent(this@Main2Activity, MainActivity::class.java)
             startActivity(intent)
+            finish()
 
         }
 
         override fun onTick(value: Long) {
 
         }
-    }.start()
+    }
+    override fun onResume() {
+        timer.start()
+        super.onResume()
+    }
+
+    override fun onPause() {
+        timer.cancel()
+        super.onPause()
+    }
+
 
 }
+
+
+
+
+
+
+
+
+
+

@@ -30,10 +30,13 @@ class MainActivity : AppCompatActivity() {
         }
 
         override fun onTick(value: Long) {
-            //Пробовала i.rangeTo(i+1), i.plus(1)
             i++
-            //Пробовала text.setText(i), не сработало
-            text.text = convertIntToWord(i)
+            if (i >= 1000){
+                startbutton.callOnClick()
+                text.text = "ноль"
+            }
+            else
+                text.text = convertIntToWord(i)
         }
     }
 
@@ -49,7 +52,7 @@ class MainActivity : AppCompatActivity() {
             timer.cancel()
             isPlaying = false
             i = 0
-            text.setText("0")
+            text.setText("Ноль")
             startbutton.setText("Старт")
         }
 
@@ -59,7 +62,6 @@ class MainActivity : AppCompatActivity() {
     fun convertIntToWord(digit : Int) :String {
         var stringDigit : String
         val length: Int = digit.toString().length
-        if (digit >= 1000) return "Я устал считать"
          stringDigit  = when(digit) {
              1 -> "один"
              2 -> "два"

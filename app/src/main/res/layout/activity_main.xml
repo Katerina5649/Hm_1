@@ -6,42 +6,31 @@
                android:background="@color/colorPrimary"
                 >
 
-    <!--
-    <TextView
-            android:id="@+id/textView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="60dp"
-            android:text="@string/_00_30"
-            android:textAppearance="?android:attr/textAppearanceLarge"/>
-    -->
-
 
     <Button
             android:id="@+id/startbutton"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Старт"
             android:onClick="Timer"
-
+            android:scaleType="fitCenter"
     />
 
 
     <TextView
-            android:id = "@+id/text"
+            android:id="@+id/text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:gravity="center"
             android:padding="12dp"
-            android:text="0"
+            android:text="ноль"
             android:textSize="40sp"
             android:textStyle="bold"
             android:shadowColor="#ff0000"
             android:shadowDx="2"
             android:shadowDy="2"
-            android:shadowRadius="5" android:layout_alignParentBottom="true" android:layout_marginBottom="296dp"
-            android:layout_marginTop="32dp" android:layout_below="@+id/startbutton"/>
+            android:shadowRadius="5" android:layout_alignParentBottom="true" android:layout_marginBottom="351dp"
+            android:layout_marginTop="62dp" android:layout_below="@+id/startbutton"/>
 
 
     <!--Таймер
