@@ -11,7 +11,7 @@
             android:id="@+id/startbutton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Старт"
+            android:text="Start"
             android:onClick="Timer"
             android:scaleType="fitCenter"
     />
@@ -19,27 +19,17 @@
 
     <TextView
             android:id="@+id/text"
+
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
             android:padding="12dp"
-            android:text="ноль"
+            android:text=""
             android:textSize="40sp"
             android:textStyle="bold"
             android:shadowColor="#ff0000"
             android:shadowDx="2"
             android:shadowDy="2"
-            android:shadowRadius="5" android:layout_alignParentBottom="true" android:layout_marginBottom="351dp"
-            android:layout_marginTop="62dp" android:layout_below="@+id/startbutton"/>
+            android:shadowRadius="5" android:layout_below="@+id/startbutton"/>
 
-
-    <!--Таймер
-    <Chronometer
-            android:id="@+id/chronometer"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" android:layout_alignParentEnd="true" android:layout_marginEnd="141dp"
-            android:layout_alignParentStart="true" android:layout_marginStart="140dp"
-            android:textSize="30sp"/>
-     -->
-    <!--@string/_00_30 и @string/start описаны в values/strings-->
 </RelativeLayout>

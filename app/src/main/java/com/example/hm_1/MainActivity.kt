@@ -22,8 +22,8 @@ class MainActivity : AppCompatActivity() {
     }
 
 
-    //vat т.к i изменяемое
-    var i :Int = 0
+    //var т.к i изменяемое
+    private var i :Int = 0
     val timer = object : CountDownTimer(TimeUnit.SECONDS.toMillis(10), TimeUnit.SECONDS.toMillis(1)) {
         override fun onFinish() {
             start()
@@ -31,9 +31,11 @@ class MainActivity : AppCompatActivity() {
 
         override fun onTick(value: Long) {
             i++
-            if (i >= 1000){
+            if (i > 1000){
                 startbutton.callOnClick()
-                text.text = "ноль"
+                text.text = ""
+                i = 0
+
             }
             else
                 text.text = convertIntToWord(i)
@@ -45,15 +47,14 @@ class MainActivity : AppCompatActivity() {
     fun Timer(v: View){
         if (!isPlaying) {
             isPlaying = true
-            startbutton.setText("Стоп")
+            startbutton.setText("Stop")
             timer.start()
 
         } else {
             timer.cancel()
             isPlaying = false
-            i = 0
-            text.setText("Ноль")
-            startbutton.setText("Старт")
+            text.setText("")
+            startbutton.setText("Start")
         }
 
 
@@ -99,6 +100,7 @@ class MainActivity : AppCompatActivity() {
              700 -> "семьсот"
              800 -> "восемьсот"
              900 -> "девятьсот"
+             1000->"тысяча"
              else -> convertIntToWord((digit / 10.toDouble().pow(length-1).toInt())*10.toDouble().pow(length-1).toInt())+" "+ convertIntToWord(digit % 10.toDouble().pow(length-1).toInt())
          }
 
